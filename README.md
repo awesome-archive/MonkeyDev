@@ -1,129 +1,46 @@
 # MonkeyDev
 
-[English Doc](README.md)
-|
-[中文文档](README-zh.md)
-|
-[Wiki](https://github.com/AloneMonkey/MonkeyDev/wiki)
-
-<p align="center">
-  <p align="center"></p>
-  <p align="center"></p>
-  <p align="center"></p>
-
-  <p align="center">
-    <img with="220px" height="220px" src="http://7xtdl4.com1.z0.glb.clouddn.com/script_1500695705204.png" alt="qrcode">
-  </p>
-
-  <p align="center">
-     群已满100人，关注公众号，点击"加群讨论"
-  </p>
-</p>
-
 A modified version of iOSOpenDev
 
 * easy to install
 * support the latest version of theos
 * support CaptainHook Tweak、Logos Tweak、Command-line Tool
+* support insert dylib、class-dump、restore-symbol、reveal、cycript，patch and debug iOS Apps, without jailbreak.
 
-run with the latest theos and Xcode 9 is ok。
+Plese Read Wiki: [Wiki](https://github.com/AloneMonkey/MonkeyDev/wiki)
 
-### Requirements
 
-* Install the latest [theos](https://github.com/theos/theos/)
-* brew install ldid
-* SSH into your jailbroken iDevice without a password
 
-```
-ssh-keygen -t rsa -P ''
-ssh-copy-id -i /Users/username/.ssh/id_rsa root@ip
-```
 
-### Installation
 
-select the Xcode to install:
+原有iOSOpenDev的升级，非越狱插件开发集成神器！
 
-```
-sudo xcode-select -s /Applications/Xcode-beta.app
-```
+* 可以使用Xcode开发CaptainHook Tweak、Logos Tweak 和 Command-line Tool，在越狱机器开发插件，这是原来iOSOpenDev功能的迁移和改进。
+* 只需拖入一个砸壳应用，自动集成class-dump、restore-symbol、Reveal、Cycript和注入的动态库并重签名安装到非越狱机器。
+* 支持调试自己编写的动态库和第三方App
+* 支持通过CocoaPods第三方应用集成SDK以及非越狱插件，简单来说就是通过CocoaPods搭建了一个非越狱插件商店。
 
-default Xcode to install:
+使用请阅读Wiki文档: [Wiki](https://github.com/AloneMonkey/MonkeyDev/wiki)
 
-```
-xcode-select -p
-```
 
-install:
+非越狱插件CocoaPods私有仓库地址:[MonkeyDevSpecs](https://github.com/AloneMonkey/MonkeyDevSpecs)
 
-```
-git clone https://github.com/AloneMonkey/MonkeyDev.git
-cd MonkeyDev/bin
-sudo ./md-install
-```
 
-### Usage
 
-Create a new project, Select a template to start。
+**免责声明: 软件仅供技术交流，禁止用于商业及非法用途，如产生法律纠纷与本人无关。**
 
-![image](http://7xtdl4.com1.z0.glb.clouddn.com/script_1499260720390.png)
+<br>
 
-Compile: `Commonand + B`
+<h2>《iOS应用逆向与安全》出版啦！！！</h2>
 
-Install: 
+# 购书链接
 
-* set `MonkeyDevInstallOnAnyBuild` to `YES`， then `Commonand + B` with `Debug`
-* `Command + Shift + i` with `Release`， disable log print
+#### 京东: [https://item.jd.com/12361729.html](https://item.jd.com/12361729.html)
 
-Custom Build Settings:
+#### 天猫: [https://detail.tmall.com/item.htm?id=570691214072](https://detail.tmall.com/item.htm?id=570691214072)
 
-![image](http://7xtdl4.com1.z0.glb.clouddn.com/script_1499525830459.png)
+#### 当当: [http://product.dangdang.com/25283164.html](http://product.dangdang.com/25283164.html)
 
-default value:
-ip: `localhost`
-port: `22`
+#### 亚马逊: [https://www.amazon.cn/dp/B07D5952BR/](https://www.amazon.cn/dp/B07D5952BR/)
 
-The Bash profile file also can export variable。
-
-`~/.zshrc` or ` ~/.bash_profile` or others.
-
-```
-export MonkeyDevDeviceIP=
-export MonkeyDevDevicePort=
-```
-
-use `idevicesyslog` to show log print.
-
-### Custom Settings
-
-|setting|meaning|
-|--|--|
-|MonkeyDevBuildPackageOnAnyBuild|create package on any type of build. |
-|MonkeyDevCopyOnBuild|during any build, copy the target (executable) to the device at /var/root/iOSOpenDevBuilds/|
-|MonkeyDevDeviceIP|the host name (e.g. MyiPhone.local) or IP address (e.g. 192.168.1.101) of the device you wish to use during development.|
-|MonkeyDevDevicePort|connect port of the device|
-|MonkeyDevInstallOnAnyBuild|install the package on the device on any type of build. |
-|MonkeyDevInstallOnProfiling|during a Build For Profiling (Command-Shift-I or Product > Build For > Build For Profiling), build the project's Debian package, copy the package to the device at /var/root/MonkeyDevPackages (using SSH) and install the package (using SSH and running dpkg locally on the device)|
-|MonkeyDevRespringOnInstall|after the Debian package has been built and installed, respring (i.e. kill and relaunch SpringBoard) the device.|
-|MonkeyDevUsePackageVersionPList|It indicates whether to use the target's PackageVersion.plist file to set the Debian package's control file's Version field only. |
-|MonkeyDevPath|Do not change this. This is the path to MonkeyDev which is used by other build settings.|
-|MonkeyDevTheosPath|the path to theos installed|
-
-### uninstall
-
-```
-sudo ./md-uninstall
-```
-
-### changelog
-
-v 2.0
-
-* Patch iOS Apps, Without Jailbreak.
-* default port to 22
-* any build will install
-
-v 1.0
-
-* add CaptainHook Tweak、Logos Tweak、Command-line Tool support
-* auto link CydiaSubstrate.framwork
-* set default value to device ip and port
+<h3>请大家多多支持正版哦~</h3>
